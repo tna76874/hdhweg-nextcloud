@@ -15,6 +15,5 @@
 
 - name: Ensure nextcloud nginx conf is present
   template:
-    src: rocketchat.nginx
+    src: nextcloud.nginx
     dest: "/etc/nginx/{{ nginx_domain_name }}.d/nextloud.conf"
-    #    notify: reload nginx
