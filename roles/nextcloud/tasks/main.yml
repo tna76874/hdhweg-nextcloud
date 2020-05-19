@@ -1,9 +1,6 @@
 ---
 - name: Install nextcloud snap
-  snap:
-    name:
-      - nextcloud
-    state: present
+  command: snap install nextcloud
 
 - name: Enable removable media
   shell:
@@ -13,7 +10,12 @@
   shell:
     cmd: sudo snap set nextcloud ports.http=81 ports.https=444
 
+- name: Set nextcloud trusted domains
+  shell:
+    cmd: sudo nextcloud.occ config:system:set trusted_domains 0 --value="{{ nginx_domain_name }}"
+
 - name: Ensure nextcloud nginx conf is present
   template:
     src: nextcloud.nginx
     dest: "/etc/nginx/{{ nginx_domain_name }}.d/nextloud.conf"
+
