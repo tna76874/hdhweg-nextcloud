@@ -1,4 +1,4 @@
-# Install nextcloud via snap
+---
 - name: Install nextcloud snap
   snap:
     name:
