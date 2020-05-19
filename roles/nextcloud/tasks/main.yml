@@ -1,0 +1,19 @@
+# Install nextcloud via snap
+- name: Install nextcloud snap
+  snap:
+    name:
+      - nextcloud
+
+- name: Enable removable media
+  shell:
+    cmd: sudo snap connect nextcloud:removable-media
+
+- name: Change ports of nextcloud snap
+  shell:
+    cmd: sudo snap set nextcloud ports.http=81 ports.https=444
+
+- name: Ensure nextcloud nginx conf is present
+  template:
+    src: rocketchat.nginx
+    dest: "/etc/nginx/{{ nginx_domain_name }}.d/nextloud.conf"
+    #    notify: reload nginx
