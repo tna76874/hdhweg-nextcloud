@@ -1,0 +1,10 @@
+---
+- name: Security Setup
+  hosts: localhost
+  become: yes
+  tags:
+    - securoty
+  vars_files:
+    - vars.yml
+  roles:
+    - security
