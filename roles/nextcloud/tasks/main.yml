@@ -3,6 +3,7 @@
   snap:
     name:
       - nextcloud
+    state: present
 
 - name: Enable removable media
   shell:

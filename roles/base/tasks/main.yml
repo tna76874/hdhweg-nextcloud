@@ -39,7 +39,8 @@
       - htop
       - vim
       - nano
-    state: present
+      - snapd
+    state: latest
 
 - name: Ensure 'sudo' group exists
   group:
