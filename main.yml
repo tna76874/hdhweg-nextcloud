@@ -17,7 +17,7 @@
   tags:
     - nextcloud
   vars:
-    nginx_domain_name: "nc.{{ main_domain }}"
+    nginx_domain_name: "{{ main_domain }}"
   roles:
     - nginx
     - nginx-tls-add

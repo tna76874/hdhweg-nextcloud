@@ -20,7 +20,7 @@ wget -qO setup.sh https://raw.githubusercontent.com/tna76874/hhdhweg-nextcloud/m
 Edit `vars.yml` , e.g. with nano. Save the file with ctrl+o and close with ctrl+x.
 
 ```
-nano vars.yml
+sudo nano vars.yml
 ```
 
 **Remove the ssh-keys inside the file `vars.yml` to prevent ssh access of the listed users.**
@@ -36,21 +36,19 @@ Set `main_domain` to the domain that points at your VM.
 Run the playbook to fully set up your server.
 
 ```
-$ sudo ansible-playbook main.yml
+sudo ansible-playbook main.yml
 ```
 
-Run the first-time setup to create a nextcloud admin user. Replace [adminuser] [password] with something of your choice.
+Now you can login to your Nextcloud-Server: yourdomain.yxz with the credentials in your `vars.yml`. Get them by printing the contents to the console.
 
 ```
-$ sudo nextcloud.manual-install [adminuser] [password]
+cat vars.yml
 ```
-
-Now you can login to your Nextcloud-Server: nc.yourdomain.yxz
 
 Further secure your server by switching off password ssh authentication. **Be sure, that you have ssh access with your private key, otherwise you will lock yourself out of your server.**
 
 ```
-$ sudo ansible-playbook secure.yml
+sudo ansible-playbook secure.yml
 ```
 
 ### Maintenance

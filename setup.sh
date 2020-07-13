@@ -26,3 +26,13 @@ git clone https://github.com/tna76874/hdhweg-nextcloud.git ${REPODIR} > /dev/nul
 # prepare the vars file
 cd ${REPODIR}
 sudo cp vars.yml.example vars.yml
+
+function generatePassword() {
+    openssl rand -hex 16
+}
+
+NCADMIN=$(generatePassword)
+
+sed -i \
+    -e "s#ncadminpw:.*#ncadminpw: ${NCADMIN}#g" \
+    "$(dirname "$0")/vars.yml"
