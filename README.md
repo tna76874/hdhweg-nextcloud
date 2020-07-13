@@ -6,7 +6,7 @@ nextcloud snap ubuntu server install
 
 ### Requirements
 
-* A (virtual) server hosted by the company of your choice. The server should be located in germany!
+* A (virtual) server hosted by the company of your choice.
 * A domain with an A-record pointing to the static IP-adress of your server.
 
 ### Prepare
@@ -14,12 +14,13 @@ nextcloud snap ubuntu server install
 Update your fresh VM and install git and ansible.
 
 ```
-$ sudo apt update && sudo apt install nano git ansible -y
+wget -qO setup.sh https://raw.githubusercontent.com/tna76874/hhdhweg-nextcloud/master/setup.sh && chmod +x setup.sh && sudo bash setup.sh && rm setup.sh
 ```
 
-Clone this repo and create the playbook-variable-file.
+Edit `vars.yml` , e.g. with nano. Save the file with ctrl+o and close with ctrl+x.
+
 ```
-$ cp vars.yml.example vars.yml
+nano vars.yml
 ```
 
 **Remove the ssh-keys inside the file `vars.yml` to prevent ssh access of the listed users.**
@@ -28,7 +29,7 @@ $ cp vars.yml.example vars.yml
 
 Set the variable `letsencrypt_email` to your mailadress. You don't want your students to have bad warning messages on your nice websites once your letsencrypt certificates expired.
 
-Set `main_domain` to the domain that points at your VM. Be sure, that the subdomain `nc` points to your VM.
+Set `main_domain` to the domain that points at your VM.
 
 ### Run
 
