@@ -1,6 +1,6 @@
 ---
 - name: Basic Setup
-  hosts: localhost
+  hosts: nextcloud
   become: yes
   tags:
     - base
@@ -10,7 +10,7 @@
     - base
 
 - name: Nextcloud
-  hosts: localhost
+  hosts: nextcloud
   become: yes
   vars_files:
     - vars.yml
