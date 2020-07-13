@@ -12,7 +12,7 @@
 
 - name: Set up inital user
   shell:
-    cmd: sudo nextcloud.manual-install "{{ ncadmin }} {{ ncadminpw }}"
+    cmd: sudo nextcloud.manual-install {{ ncadmin }} {{ ncadminpw }}
 
 - name: Set nextcloud trusted domains
   shell:
