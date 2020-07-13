@@ -27,4 +27,5 @@
   template:
     src: nextcloud.nginx
     dest: "/etc/nginx/{{ nginx_domain_name }}.d/nextloud.conf"
+  notify: reload nginx
 
