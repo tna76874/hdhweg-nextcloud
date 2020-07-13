@@ -14,7 +14,7 @@ nextcloud snap ubuntu server install
 Update your fresh VM and install git and ansible.
 
 ```
-wget -qO setup.sh https://raw.githubusercontent.com/tna76874/hhdhweg-nextcloud/master/setup.sh && chmod +x setup.sh && sudo bash setup.sh && rm setup.sh
+wget -qO setup.sh https://raw.githubusercontent.com/tna76874/hdhweg-nextcloud/master/setup.sh && chmod +x setup.sh && sudo bash setup.sh && rm setup.sh
 ```
 
 Edit `vars.yml` , e.g. with nano. Save the file with ctrl+o and close with ctrl+x.
